@@ -1,12 +1,18 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import httpstatus from "http-status-codes";
 import { ErrorRequestHandler } from "express";
 import { envVariable } from "../config/envConfig";
 import AppError from "../errors/AppError";
 
+interface IErrorSources {
+  path: string;
+  message: string;
+}
+
 const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
   let statusCode = 500;
   let message = "Something went wrong";
-  let errorSource = [
+  const errorSource: IErrorSources[] = [
     {
       path: "",
       message: "",
