@@ -10,7 +10,7 @@ export default tseslint.config(
   {
     rules: {
       "no-console": "warn",
-      "@typescript-eslint/consistent-type-definitions": ["error", "prefer-interface"]
+      "@typescript-eslint/consistent-type-definitions": ["error"]
 
     },
   }

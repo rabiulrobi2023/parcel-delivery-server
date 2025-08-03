@@ -2,7 +2,6 @@ import httpstatus from "http-status-codes";
 import AppError from "../../errors/AppError";
 import { IUser } from "./user.interface";
 import { User } from "./user.model";
-import { sendResponse } from "../../utils/sendResponse";
 
 const createUser = async (payload: Partial<IUser>) => {
   const isUserExists = await User.findOne({ email: payload.email });

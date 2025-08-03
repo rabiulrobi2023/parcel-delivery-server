@@ -2,6 +2,7 @@ import { catchAsync } from "../../utils/catchAsync";
 import { sendResponse } from "../../utils/sendResponse";
 import { UserService } from "./user.service";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const createUser = catchAsync(async (req, res, next) => {
   const userData = req.body;
   const result = await UserService.createUser(userData);

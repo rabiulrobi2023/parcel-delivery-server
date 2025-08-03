@@ -1,3 +1,5 @@
+import { Types } from "mongoose";
+
 export enum Role {
   admin = "admin",
   sender = "sender",
@@ -10,6 +12,7 @@ export enum Status {
 }
 
 export interface IUser {
+  _id?: Types.ObjectId,
   name: string;
   email: string;
   phone: string;
