@@ -21,8 +21,14 @@ const credentialLogin = async (payload: ILogin) => {
   if (!checkPassword(payload.password, isUserExists.password)) {
     throw new AppError(httpstatus.BAD_REQUEST, "Worng password");
   }
+
+  const { password: pass, ...rest } = isUserExists.toObject();
   const userTokens = generateUserTokens(isUserExists);
-  return userTokens;
+  return {
+    accessToken: userTokens.accessToken,
+    refreshToken: userTokens.refreshToken,
+    user: rest,
+  };
 };
 
 export const AuthService = {

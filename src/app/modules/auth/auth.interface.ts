@@ -6,6 +6,11 @@ export interface ILogin {
   password: string;
 }
 
+export enum ITokenName {
+  accessToken = "accessToken",
+  refreshToken = "refreshToken"
+}
+
 export interface IJwtPayload {
   id: Types.ObjectId;
   name: string;
