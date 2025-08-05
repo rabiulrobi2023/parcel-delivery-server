@@ -9,7 +9,7 @@ import { JwtPayload } from "jsonwebtoken";
 import { User } from "../modules/user/user.model";
 
 const checkAuth = (...requiredRoles: Role[]) => {
-  return catchAsync(async (req) => {
+  return catchAsync(async (req, res, next) => {
     const accessToken = req.cookies.accessToken as string;
     if (!accessToken) {
       throw new AppError(httpstatus.UNAUTHORIZED, "No access token found");
@@ -57,6 +57,7 @@ const checkAuth = (...requiredRoles: Role[]) => {
     }
 
     req.user = tokenData;
+    next();
   });
 };
 
