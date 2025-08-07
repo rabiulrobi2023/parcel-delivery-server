@@ -27,7 +27,8 @@ const checkAuth = (...requiredRoles: Role[]) => {
 
     const { role, email } = tokenData;
 
-    if (requiredRoles.length > 0 && requiredRoles.includes(role)) {
+
+    if (requiredRoles.length > 0 && !requiredRoles.includes(role)) {
       throw new AppError(
         httpstatus.UNAUTHORIZED,
         "You are not authorized person"

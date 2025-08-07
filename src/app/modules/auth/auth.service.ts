@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { generateUserTokens } from "./../../utils/userTokens";
 import httpstatus from "http-status-codes";
 import AppError from "../../errors/AppError";

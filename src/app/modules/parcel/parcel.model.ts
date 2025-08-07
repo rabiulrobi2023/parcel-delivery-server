@@ -1,13 +1,13 @@
 import { model, Schema } from "mongoose";
 import { IParcel, ITrakingEvent, Status, Type } from "./parcel.interface";
 
-const trakingEventSchema = new Schema<ITrakingEvent>(
+export const trakingEventSchema = new Schema<ITrakingEvent>(
   {
     status: {
       type: String,
       required: true,
     },
-    loaction: {
+    location: {
       type: String,
       required: true,
     },
@@ -61,6 +61,7 @@ const parcelSchema = new Schema<IParcel>(
       enum: Object.values(Status),
       default: Status.requested,
     },
+
     deliveryAddress: {
       type: String,
       required: true,

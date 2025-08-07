@@ -1,6 +1,6 @@
 import { Types } from "mongoose";
 export enum Type {
-  document = "documnet",
+  document = "document",
   others = "others",
 }
 
@@ -16,7 +16,7 @@ export enum Status {
 
 export interface ITrakingEvent {
   status: Status;
-  loaction: string;
+  location: string;
   note: string;
   updatedBy: Types.ObjectId;
   updatedAt: Date;
