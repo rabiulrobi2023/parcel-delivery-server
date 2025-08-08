@@ -1,10 +1,12 @@
 import { model, Schema } from "mongoose";
 import { IParcel, ITrakingEvent, Status, Type } from "./parcel.interface";
 
+
 export const trakingEventSchema = new Schema<ITrakingEvent>(
   {
     status: {
       type: String,
+      enum: Object.values(Status),
       required: true,
     },
     location: {

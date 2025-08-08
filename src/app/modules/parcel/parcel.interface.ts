@@ -10,9 +10,10 @@ export enum Status {
   blocked = "blocked",
   approved = "approved",
   dispatched = "dispatched",
-  in_transit = "in_transit",
+  in_transit = "in-transit",
   delivered = "delivered",
 }
+
 
 export interface ITrakingEvent {
   status: Status;

@@ -1,5 +1,5 @@
 import z from "zod";
-import { Type } from "./parcel.interface";
+import { Status, Type } from "./parcel.interface";
 
 const createParcelValidationSchema = z.object({
   receiver: z.string(),
@@ -14,6 +14,19 @@ const createParcelValidationSchema = z.object({
   ),
 });
 
+const updateParcelStatusValidation = z.object({
+  status: z.enum(Object.values(Status)),
+  location: z.string(),
+  note: z.string().optional(),
+});
+
+const confirmDelivaryValidation = z.object({
+  location: z.string().optional(),
+  note: z.string().optional(),
+});
+
 export const ParcelValidation = {
   createParcelValidationSchema,
+  updateParcelStatusValidation,
+  confirmDelivaryValidation,
 };

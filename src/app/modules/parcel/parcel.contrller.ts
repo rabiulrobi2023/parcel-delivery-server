@@ -1,3 +1,4 @@
+import httpstatus from "http-status-codes";
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Types } from "mongoose";
 import { catchAsync } from "../../utils/catchAsync";
@@ -38,15 +39,65 @@ const cancelParcel = catchAsync(async (req, res, next) => {
 
 const getMysentParcels = catchAsync(async (req, res, next) => {
   const sender = req.user.id;
-  const result = await ParcelService.getMysentParcels(sender);
+  const result = await ParcelService.getMySentParcels(sender);
   sendResponse(res, {
     message: "Parcel retrived successfully",
     data: result,
   });
 });
+
+const getMyIncomingParcels = catchAsync(async (req, res, next) => {
+  const receiverId = req.user.id;
+  const result = await ParcelService.getMyIncomingParcels(receiverId);
+  if (result.length < 1) {
+    sendResponse(res, {
+      statusCode: httpstatus.NOT_FOUND,
+      message: "There is no any incomming parcels",
+      data: result,
+    });
+  }
+  sendResponse(res, {
+    message: "Parcel retrived successfully",
+    data: result,
+  });
+});
+
+const updateParcelStatus = catchAsync(async (req, res, next) => {
+  const parcelId = req.params.id;
+  const user = req.user;
+  const updateData = req.body;
+  const result = await ParcelService.updateParcelStatus(
+    parcelId,
+    user,
+    updateData
+  );
+  sendResponse(res, {
+    message: "Parcel status update successfull",
+    data: result,
+  });
+});
+
+const makeConfirmDelivery = catchAsync(async (req, res, next) => {
+  const parcelId = req.params.id;
+  const userId = req.user.id;
+  const updateData = req.body;
+  const result = await ParcelService.makeConfirmDelivery(
+    parcelId,
+    userId,
+    updateData
+  );
+  sendResponse(res, {
+    message: "Parcel delivary confirmed",
+    data: result,
+  });
+});
+
 export const ParcelContrller = {
   createParcel,
   getAllParcel,
   cancelParcel,
-  getMysentParcels
+  getMysentParcels,
+  getMyIncomingParcels,
+  updateParcelStatus,
+  makeConfirmDelivery
 };
