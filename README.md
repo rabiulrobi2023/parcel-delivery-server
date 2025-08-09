@@ -49,7 +49,7 @@
 
 ## Environmet Instruction
   PORT = 5000
-  DB_URL = mongodb+srv://<username>:<password>@<cluster-url>.9f4uluw.mongodb.net/<db_name>?retryWrites=true&w=majority&appName=ClusterPH
+  DB_URL = mongodb+srv://<username>:<password>@<cluster-url>.9f4uluw.mongodb.net/<db_name>?retryWrites=true&w=majority&appName=Cluster0
 
   NOVE_ENV = development
   SALT = any_number 
@@ -63,5 +63,43 @@
   SUPER_ADMIN_EMAIL = super_admin_email
   SUPER_ADMIN_PASS = super_admin_password
 
-## Endpoints
+## API
+### Base API: parcel-delivery-server-psi.vercel.app
+/api/v1
+
+### Endpoints:
+### Auth Related:
+  1. User Login:
+     Endpoint: /auth/login
+     Body:
+
+         {
+          "email": "superadmin@gmail.com",
+          "password": "superadmin"
+          }
+     Params: No
+     Output:
+     
+           {
+          "success": true,
+          "message": "User login successfully",
+          "data": {
+              "accessToken": ******
+              "refreshToken": *****,
+              "user": {
+                  "_id": "6897619cb51fbcec48a3d262",
+                  "name": "Super Admin",
+                  "email": "superadmin@gmail.com",
+                  "role": "superAdmin",
+                  "status": "active",
+                  "isDeleted": false,
+                  "createdAt": "2025-08-09T14:56:28.930Z",
+                  "updatedAt": "2025-08-09T14:56:28.930Z",
+                  "__v": 0
+              }
+          }
+          }
+     
+#### User Related
+1. Endpoint: 
      
