@@ -19,6 +19,7 @@
       i. Dispatched
       ii. In-transit
     Note: A cancelled parcel is not possible to dispatched. Without dispatched can not possible update as in-transit. So the update logs of parcel maintain the following sequence:
+
     requested ➡️ approved ➡️ dispatched ➡️ in-transit ➡️ delivered
     - Admin and super admin can see all parcel
 
