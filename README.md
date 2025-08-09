@@ -188,4 +188,91 @@ parcel-delivery-server-psi.vercel.app/api/v1
     <td>NA</td>
   </tr>
   
+  <tr>
+    <td>parcel</td>
+    <td>My Sent Parcel</td>
+    <td>/parcels/mine</td>
+    <td>GET</td>
+    <td>sender</td>
+    <td>NA</td>
+  </tr>
+  
+  <tr>
+    <td>parcel</td>
+    <td>Cancel a Parcel</td>
+    <td>/parcels/cancel/:parcelId</td>
+    <td>PATCH</td>
+    <td>sender</td>
+    <td>NA</td>
+  </tr>
+  
+  <tr>
+    <td>parcel</td>
+    <td>Get all Parcel</td>
+    <td>/parcels</td>
+    <td>GET</td>
+    <td>admin, superAdmin</td>
+    <td>NA</td>
+  </tr>
+  
+  <tr>
+    <td>parcel</td>
+    <td>Get Single Parcel</td>
+    <td>/parcels/:parcelId</td>
+    <td>GET</td>
+    <td>admin, superAdmin</td>
+    <td>NA</td>
+  </tr>
+  
+  <tr>
+    <td>parcel</td>
+    <td>Block Single Parcel</td>
+    <td>/parcels/block-parcel/:parcelId</td>
+    <td>PATCH</td>
+    <td>admin, superAdmin</td>
+    <td>
+  
+    {
+      "location": "Bogura",
+      "note": "Blocked the parcel"
+    }
+  </td>
+  </tr>
+  
+  <tr>
+    <td>parcel</td>
+    <td>Update Status and Tracking</td>
+    <td>/parcels/status/:parcelId</td>
+    <td>PATCH</td>
+    <td>admin, superAdmin</td>
+    <td>
+      
+    {
+      "status": "approved",
+      "location": "Dinajpur, Bangladesh",
+      "note": "The parcel is now transit from Dinajpur to Bogura"
+    }
+  </td>
+  </tr>
+
+  <tr>
+    <td>parcel</td>
+    <td>My Incomming Parcel</td>
+    <td>/parcels/incoming</td>
+    <td>GET</td>
+    <td>receiver</td>
+    <td>NA</td>
+  </tr>
+  
+  <tr>
+    <td>parcel</td>
+    <td>Delivery Confirm</td>
+    <td>/parcels/confirm/:parcelId</td>
+    <td>PATCH</td>
+    <td>receiver</td>
+    <td>NA</td>
+  </tr>
+
+
+  
 </table>
