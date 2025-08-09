@@ -10,8 +10,7 @@ import { User } from "../modules/user/user.model";
 
 const checkAuth = (...requiredRoles: Role[]) => {
   return catchAsync(async (req, res, next) => {
-    const accessToken = req.headers.authorization as string;
-    console.log(accessToken)
+    const accessToken = req.cookies.accessToken;
 
     if (!accessToken) {
       throw new AppError(httpstatus.UNAUTHORIZED, "No access token found");
@@ -28,7 +27,6 @@ const checkAuth = (...requiredRoles: Role[]) => {
     }
 
     const { role, email } = tokenData;
-
 
     if (requiredRoles.length > 0 && !requiredRoles.includes(role)) {
       throw new AppError(

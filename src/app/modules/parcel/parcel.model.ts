@@ -19,6 +19,7 @@ export const trakingEventSchema = new Schema<ITrakingEvent>(
     updatedBy: {
       type: Schema.ObjectId,
       required: true,
+      ref: "user"
     },
     updatedAt: {
       type: Date,

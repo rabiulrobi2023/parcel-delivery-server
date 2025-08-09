@@ -10,6 +10,10 @@ interface IEnvVars {
   JWT_ACCESS_EXPIRE: string;
   JWT_REFRESH_SECRET: string;
   JWT_REFRESH_EXPIRE: string;
+  SUPER_ADMIN_EMAIL:string;
+  SUPER_ADMIN_PASS:string
+
+
 }
 
 const envVar = (): IEnvVars => {
@@ -22,6 +26,8 @@ const envVar = (): IEnvVars => {
     JWT_ACCESS_EXPIRE: process.env.JWT_ACCESS_EXPIRE as string,
     JWT_REFRESH_SECRET: process.env.JWT_REFRESH_SECRET as string,
     JWT_REFRESH_EXPIRE: process.env.JWT_REFRESH_EXPIRE as string,
+      SUPER_ADMIN_EMAIL: process.env.SUPER_ADMIN_EMAIL as string,
+    SUPER_ADMIN_PASS: process.env.SUPER_ADMIN_PASS as string
   };
 };
 

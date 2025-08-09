@@ -30,6 +30,7 @@ const userSchema = new Schema<IUser>(
     status: {
       type: String,
       enum: Object.values(Status),
+      default: Status.active,
     },
     isDeleted: {
       type: Boolean,
@@ -45,7 +46,30 @@ userSchema.pre("save", async function (next) {
 });
 
 userSchema.post("save", function (doc, next) {
-  doc.password = "";
+  if (doc) {
+    doc.password = "";
+  }
+  next();
+});
+
+userSchema.post("findOneAndUpdate", function (doc, next) {
+  if (doc) {
+    doc.password = "";
+  }
+  next();
+});
+
+userSchema.post("findOne", function (doc, next) {
+  if (doc) {
+    doc.password = "";
+  }
+  next();
+});
+
+userSchema.post("find", function (docs, next) {
+  if (docs.length > 0) {
+    docs.forEach((doc: IUser) => (doc.password = ""));
+  }
   next();
 });
 

@@ -18,9 +18,19 @@ const createParcel = catchAsync(async (req, res, next) => {
 });
 
 const getAllParcel = catchAsync(async (req, res, next) => {
-  const result = await ParcelService.getAllParcel();
+  const query = req?.query || ""
+  const result = await ParcelService.getAllParcel(query as Record<string,string>);
   sendResponse(res, {
     message: "All parcel retrived successfully",
+    data: result,
+  });
+});
+
+const getSingleParcel = catchAsync(async (req, res, next) => {
+  const parcelId = req.params.id;
+  const result = await ParcelService.getSingleParcel(parcelId);
+  sendResponse(res, {
+    message: "Parcel retrived successfully",
     data: result,
   });
 });
@@ -92,12 +102,25 @@ const makeConfirmDelivery = catchAsync(async (req, res, next) => {
   });
 });
 
+const blockParcel = catchAsync(async (req, res, next) => {
+  const parcelId = req.params.id;
+  const userId = req.user.id;
+  const updateData = req.body;
+  const result = await ParcelService.blockParcel(parcelId, userId, updateData);
+  sendResponse(res, {
+    message: "Parcel is blocked",
+    data: result,
+  });
+});
+
 export const ParcelContrller = {
   createParcel,
   getAllParcel,
+  getSingleParcel,
   cancelParcel,
   getMysentParcels,
   getMyIncomingParcels,
   updateParcelStatus,
-  makeConfirmDelivery
+  makeConfirmDelivery,
+  blockParcel,
 };

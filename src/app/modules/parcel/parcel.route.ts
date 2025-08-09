@@ -4,8 +4,6 @@ import { Role } from "../user/user.interface";
 import { ParcelContrller } from "./parcel.contrller";
 import { validationRequest } from "../../middlewires/validationRequest";
 import { ParcelValidation } from "./parcel.validation";
-;
-
 const router = Router();
 router.post(
   "/",
@@ -14,7 +12,11 @@ router.post(
   ParcelContrller.createParcel
 );
 
-router.get("/", checkAuth(Role.admin), ParcelContrller.getAllParcel);
+router.get(
+  "/",
+  checkAuth(Role.superAdmin, Role.admin),
+  ParcelContrller.getAllParcel
+);
 
 router.get("/mine", checkAuth(Role.sender), ParcelContrller.getMysentParcels);
 router.get(
@@ -22,6 +24,12 @@ router.get(
   checkAuth(Role.receiver),
   ParcelContrller.getMyIncomingParcels
 );
+router.get(
+  "/:id",
+  checkAuth(Role.superAdmin, Role.admin),
+  ParcelContrller.getSingleParcel
+);
+
 router.patch(
   "/cancel/:id",
   checkAuth(Role.sender),
@@ -30,7 +38,7 @@ router.patch(
 
 router.patch(
   "/status/:id",
-  checkAuth(Role.admin),
+  checkAuth(Role.superAdmin, Role.admin),
   validationRequest(ParcelValidation.updateParcelStatusValidation),
   ParcelContrller.updateParcelStatus
 );
@@ -40,6 +48,12 @@ router.patch(
   checkAuth(Role.receiver),
   validationRequest(ParcelValidation.confirmDelivaryValidation),
   ParcelContrller.makeConfirmDelivery
+);
+router.patch(
+  "/block-parcel/:id",
+  checkAuth(Role.superAdmin, Role.admin),
+  validationRequest(ParcelValidation.confirmDelivaryValidation),
+  ParcelContrller.blockParcel
 );
 
 export const ParcelRoutes = router;

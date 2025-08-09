@@ -37,8 +37,20 @@ const createParcel = async (id: Types.ObjectId, payload: Partial<IParcel>) => {
 };
 
 //==============================Get All Parcel===================================
-const getAllParcel = async () => {
-  const result = await Parcel.find();
+const getAllParcel = async (query: Record<string, string>) => {
+  const result = await Parcel.find(query)
+    .populate("receiver")
+    .populate("sender")
+    .populate("statusLogs.updatedBy");
+  return result;
+};
+
+//==============================Get Single Parcel===================================
+const getSingleParcel = async (parcelId: string) => {
+  const result = await Parcel.findById(parcelId)
+    .populate("receiver")
+    .populate("sender")
+    .populate("statusLogs.updatedBy");
   return result;
 };
 
@@ -87,7 +99,10 @@ const cancelParcel = async (
 
 //==============================Get My Sent Parcel===================================
 const getMySentParcels = async (sender: string) => {
-  const myParcel = await Parcel.find({ sender: sender });
+  const myParcel = await Parcel.find({ sender: sender })
+    .populate("receiver")
+    .populate("sender")
+    .populate("statusLogs.updatedBy");
   return myParcel;
 };
 
@@ -97,8 +112,9 @@ const getMyIncomingParcels = async (reveiverId: string) => {
     receiver: reveiverId,
     status: { $nin: [Status.cancelled, Status.cancelled, Status.delivered] },
   })
+    .populate("receiver")
     .populate("sender")
-    .populate("receiver");
+    .populate("statusLogs.updatedBy");
   return result;
 };
 
@@ -231,12 +247,52 @@ const makeConfirmDelivery = async (
   return result;
 };
 
+const blockParcel = async (
+  parcelId: string,
+  userId: Types.ObjectId,
+  updateData: Partial<ITrakingEvent>
+) => {
+  const isParcelExists = await Parcel.findById(parcelId);
+  if (!isParcelExists) {
+    throw new AppError(httpstatus.NOT_FOUND, "Parcel not found");
+  }
+  if (isParcelExists.status != Status.requested) {
+    throw new AppError(
+      httpstatus.BAD_REQUEST,
+      `The parcel is already ${isParcelExists.status}`
+    );
+  }
+
+  const newTrack: ITrakingEvent = {
+    status: Status.blocked,
+    location: updateData.location || "",
+    note: updateData.note || "",
+    updatedBy: userId,
+    updatedAt: new Date(),
+  };
+
+  const newStatusLog = isParcelExists.statusLogs;
+  newStatusLog.push(newTrack);
+  const result = await Parcel.findByIdAndUpdate(
+    parcelId,
+    {
+      status: Status.blocked,
+      statusLogs: newStatusLog,
+    },
+    { new: true }
+  );
+
+  return result;
+};
+
 export const ParcelService = {
   createParcel,
   getAllParcel,
+  getSingleParcel,
   cancelParcel,
   getMySentParcels,
   getMyIncomingParcels,
   updateParcelStatus,
   makeConfirmDelivery,
+  blockParcel,
 };
