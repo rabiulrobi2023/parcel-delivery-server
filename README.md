@@ -73,66 +73,107 @@ parcel-delivery-server-psi.vercel.app/api/v1
   - Endpoint: /auth/login
   - Method: POST
   - Role: admin, superAdmin, sender, reveiver
+  - Params: N/A
   - Body:
 
         {
           "email": "superadmin@gmail.com",
           "password": "superadmin"
           }
-  - Params: No
   - Output:
      
-           {
-          "success": true,
-          "message": "User login successfully",
-          "data": {
-              "accessToken": ******
-              "refreshToken": *****,
-              "user": {
-                  "_id": "6897619cb51fbcec48a3d262",
-                  "name": "Super Admin",
-                  "email": "superadmin@gmail.com",
-                  "role": "superAdmin",
-                  "status": "active",
-                  "isDeleted": false,
-                  "createdAt": "2025-08-09T14:56:28.930Z",
-                  "updatedAt": "2025-08-09T14:56:28.930Z",
-                  "__v": 0
+        {
+              "success": true,
+              "message": "User login successfully",
+              "data": {
+                  "accessToken": ******
+                  "refreshToken": *****,
+                  "user": {
+                      "_id": "6897619cb51fbcec48a3d262",
+                      "name": "Super Admin",
+                      "email": "superadmin@gmail.com",
+                      "role": "superAdmin",
+                      "status": "active",
+                      "isDeleted": false,
+                      "createdAt": "2025-08-09T14:56:28.930Z",
+                      "updatedAt": "2025-08-09T14:56:28.930Z",
+                      "__v": 0
+                  }
               }
-          }
-          }
+        }
      
 ### User Related
 #### 1. Create Admin:
-  - Endpoint: /auth/login
+  - Endpoint: user/create-admin
   - Method: POST
-  - Role: admin, superAdmin, sender, reveiver
+  - Role: superAdmin
+  - Params: N/A
   - Body:
 
         {
-          "email": "superadmin@gmail.com",
-          "password": "superadmin"
-          }
-  - Params: No
+            "name": "Admin1",
+            "email": "admin1@gmail.com",
+            "phone": "01712345678",
+            "address": "Dinajpur Sadar, Dinajpur",
+            "password": "admin1",
+            "role": "admin"
+        }
+      
   - Output:
      
-           {
-          "success": true,
-          "message": "User login successfully",
-          "data": {
-              "accessToken": ******
-              "refreshToken": *****,
-              "user": {
-                  "_id": "6897619cb51fbcec48a3d262",
-                  "name": "Super Admin",
-                  "email": "superadmin@gmail.com",
-                  "role": "superAdmin",
-                  "status": "active",
-                  "isDeleted": false,
-                  "createdAt": "2025-08-09T14:56:28.930Z",
-                  "updatedAt": "2025-08-09T14:56:28.930Z",
-                  "__v": 0
-              }
-          }
-          }
+        {
+            "success": true,
+            "message": "Admin created sucessully",
+            "data": {
+                "name": "Admin1",
+                "email": "admin1@gmail.com",
+                "phone": "01712345678",
+                "address": "Dinajpur Sadar, Dinajpur",
+                "password": "",
+                "role": "admin",
+                "status": "active",
+                "isDeleted": false,
+                "_id": "6897660913ee9a7f23eb8482",
+                "createdAt": "2025-08-09T15:15:21.755Z",
+                "updatedAt": "2025-08-09T15:15:21.755Z",
+                "__v": 0
+            }
+        }
+    
+#### 2. User Registration:
+  - Endpoint: user/register
+  - Method: POST
+  - Role: public
+  - Params: N/A
+  - Body:
+
+        {
+          "name": "Sender One",
+          "email": "sender@gmail.com",
+          "phone": "01700000001",
+          "address": "Bogura Sadar, Bogura",
+          "password": "123456", 
+          "role": "sender"
+        }
+              
+  - Output:
+     
+        {
+            "success": true,
+            "message": "User created sucessully",
+            "data": {
+                "name": "Sender One",
+                "email": "sender@gmail.com",
+                "phone": "01700000001",
+                "address": "Bogura Sadar, Bogura",
+                "password": "",
+                "role": "sender",
+                "status": "active",
+                "isDeleted": false,
+                "_id": "6897671613ee9a7f23eb8485",
+                "createdAt": "2025-08-09T15:19:50.906Z",
+                "updatedAt": "2025-08-09T15:19:50.906Z",
+                "__v": 0
+            }
+        }
      
