@@ -64,11 +64,11 @@
   SUPER_ADMIN_PASS = super_admin_password
 
 ## API
-### Base API: parcel-delivery-server-psi.vercel.app
-/api/v1
+### Base API: 
+parcel-delivery-server-psi.vercel.app/api/v1
 
-### Endpoints:
-### Auth Related:
+### Endpoints
+#### Auth Related
   1. User Login:
      Endpoint: /auth/login
      Body:
