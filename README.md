@@ -128,12 +128,12 @@ parcel-delivery-server-psi.vercel.app/api/v1
     <th>Body</th>
   </tr>
   <tr>
-    <td>Auth</td>
-    <td>Login</td>
+    <td>auth</td>
+    <td>User Login</td>
     <td>/auth/login</td>
     <td>POST</td>
     <td>admin, superAdmin, sender, receiver</td>
-    <td><NA/td>
+    <td>NA</td>
     <td>      
       
       {
@@ -145,18 +145,43 @@ parcel-delivery-server-psi.vercel.app/api/v1
   </tr>
   
   <tr>
-    <td>User</td>
-    <td>Login</td>
-    <td>/auth/login</td>
+    <td>user</td>
+    <td>Create Admin</td>
+    <td>user/create-admin</td>
     <td>POST</td>
-    <td>admin, superAdmin, sender, receiver</td>
-    <td><NA/td>
+    <td>superAdmin</td>
+    <td>NA</td>
     <td>      
       
-      {
-          "email": "superadmin@gmail.com",
-          "password": "superadmin"
-      }
+    {
+      "name": "Admin1",
+      "email": "admin1@gmail.com",
+      "phone": "01712345678",
+      "address": "Dinajpur Sadar, Dinajpur",
+      "password": "admin1",
+      "role": "admin"
+    }
+      
+  </td>
+  </tr>
+  
+  <tr>
+    <td>user</td>
+    <td>User Registration</td>
+    <td>user/register</td>
+    <td>POST</td>
+    <td>public</td>
+    <td>NA</td>
+    <td>      
+      
+    {
+      "name": "Sender One",
+      "email": "sender@gmail.com",
+      "phone": "01700000001",
+      "address": "Bogura Sadar, Bogura",
+      "password": "123456", 
+      "role": "sender"
+    }
       
   </td>
   </tr>
