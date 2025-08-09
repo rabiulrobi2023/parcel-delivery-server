@@ -1,7 +1,7 @@
 ## Parcel Delivery System
-### Welcome to parcel delivery system app. It is a backend app that using a you can manage parcel delivery system. Here role base user registration, authentication and services implemented.
+#### Welcome to parcel delivery system app. It is a backend app that using a you can manage parcel delivery system. Here role base user registration, authentication and services implemented.
 
-## Features
+## Key Features
 ### 1. Role Base Account Registration
   - Super Admin Account: A super admin account will be automatically created when the app connected to database if there have no a super admin account already exists
   - Admin Account: Only super admin can be create admin account using email id and password.
