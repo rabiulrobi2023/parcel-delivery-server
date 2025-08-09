@@ -21,8 +21,17 @@
     Note: A cancelled parcel is not possible to dispatched. Without dispatched can not possible update as in-transit. So the update logs of parcel maintain the following sequence:
 
     requested ➡️ approved ➡️ dispatched ➡️ in-transit ➡️ delivered
-    - Admin and super admin can see all parcel
+  - Admin and super admin can see all parcel
 
-    - A reveiver can see the parcel which incoming to him
-    - Reveiver can confirm dilivered the incomming parcels
-    - After delivered a parcel there have no any chance to update any step
+  - A reveiver can see the parcel which incoming to him
+  - Reveiver can confirm dilivered the incomming parcels
+  - After delivered a parcel there have no any chance to update any step
+
+### 3. User Management:
+  - Admin and super admin can see all users
+  - Admin and super admin can see any specific user
+  - Admin and super admin can block any user
+  - Admin and super admin can delete any user
+  - Admin or  super admin can unblock any blocked user
+  - Admin, super admin, sender, and reveiver and see indivudual account.
+  - Without admin or super admin, others user can see others account.
