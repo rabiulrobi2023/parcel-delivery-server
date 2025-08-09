@@ -46,4 +46,22 @@
   6. JWT: For user authentication JWT is used
   7. Zod: For data validation zod is used
   8. Brypt: For password hashing bcrypt is used
+
+## Environmet Instruction
+  PORT = 5000
+  DB_URL = mongodb+srv://<username>:<password>@<cluster-url>.9f4uluw.mongodb.net/<db_name>?retryWrites=true&w=majority&appName=ClusterPH
+
+  NOVE_ENV = development
+  SALT = any_number 
+
+  JWT_ACCESS_SECRET = your_jwt_access_secret
+  JWT_ACCESS_EXPIRE = 10d
+
+  JWT_REFRESH_SECRET = your_jwt_refresh_secret
+  JWT_REFRESH_EXPIRE = 30d
+
+  SUPER_ADMIN_EMAIL = super_admin_email
+  SUPER_ADMIN_PASS = super_admin_password
+
+## Endpoints
      
