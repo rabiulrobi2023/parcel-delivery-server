@@ -36,3 +36,14 @@
   - Admin or  super admin can unblock any blocked user
   - Admin, super admin, sender, and reveiver and see indivudual account.
   - Without admin or super admin, others user can see others account.
+    
+## Uses Technologis
+  1. Node.js: Node.js used as programming language for the backend app
+  2. Express: Express used as framework of Node.js
+  3. Typescript: For type safe typescript is used
+  4. MongoDB: MongDB used as database of this project.
+  5. Mongoose: Mongoose is library which used mongoDB data modeling.
+  6. JWT: For user authentication JWT is used
+  7. Zod: For data validation zod is used
+  8. Brypt: For password hashing bcrypt is used
+     
