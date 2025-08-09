@@ -68,17 +68,19 @@
 parcel-delivery-server-psi.vercel.app/api/v1
 
 ### Endpoints
-#### Auth Related
-  1. User Login:
-     Endpoint: /auth/login
-     Body:
+### Auth Related
+#### 1. User Login:
+  - Endpoint: /auth/login
+  - Method: POST
+  - Role: admin, superAdmin, sender, reveiver
+  - Body:
 
-         {
+        {
           "email": "superadmin@gmail.com",
           "password": "superadmin"
           }
-     Params: No
-     Output:
+  - Params: No
+  - Output:
      
            {
           "success": true,
@@ -100,6 +102,37 @@ parcel-delivery-server-psi.vercel.app/api/v1
           }
           }
      
-#### User Related
-1. Endpoint: 
+### User Related
+#### 1. Create Admin:
+  - Endpoint: /auth/login
+  - Method: POST
+  - Role: admin, superAdmin, sender, reveiver
+  - Body:
+
+        {
+          "email": "superadmin@gmail.com",
+          "password": "superadmin"
+          }
+  - Params: No
+  - Output:
+     
+           {
+          "success": true,
+          "message": "User login successfully",
+          "data": {
+              "accessToken": ******
+              "refreshToken": *****,
+              "user": {
+                  "_id": "6897619cb51fbcec48a3d262",
+                  "name": "Super Admin",
+                  "email": "superadmin@gmail.com",
+                  "role": "superAdmin",
+                  "status": "active",
+                  "isDeleted": false,
+                  "createdAt": "2025-08-09T14:56:28.930Z",
+                  "updatedAt": "2025-08-09T14:56:28.930Z",
+                  "__v": 0
+              }
+          }
+          }
      
