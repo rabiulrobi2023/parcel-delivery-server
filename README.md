@@ -68,54 +68,6 @@
 parcel-delivery-server-psi.vercel.app/api/v1
 
 ### Endpoints
-### Auth Related
-
-#### 1. Create Admin:
-  - Endpoint: user/create-admin
-  - Method: POST
-  - Role: superAdmin
-  - Params: N/A
-  - Body:
-
-        {
-            "name": "Admin1",
-            "email": "admin1@gmail.com",
-            "phone": "01712345678",
-            "address": "Dinajpur Sadar, Dinajpur",
-            "password": "admin1",
-            "role": "admin"
-        }
-    
-#### 2. User Registration:
-  - Endpoint: user/register
-  - Method: POST
-  - Role: public
-  - Params: N/A
-  - Body:
-
-        {
-          "name": "Sender One",
-          "email": "sender@gmail.com",
-          "phone": "01700000001",
-          "address": "Bogura Sadar, Bogura",
-          "password": "123456", 
-          "role": "sender"
-        }
-
-#### 3. Get All User:
-  - Endpoint: /user
-  - Method: GET
-  - Role: admin, superAdmin
-  - Params: N/A
-  - Body: N/A
-
-#### 4. Get Single User:
-  - Endpoint: user/:id
-  - Method: GET
-  - Role: admin, superAdmin
-  - Params: user id (e.g 6897671613ee9a7f23eb8485)
-  - Body: NA
-
 
 <table>
   <tr>
@@ -124,7 +76,6 @@ parcel-delivery-server-psi.vercel.app/api/v1
     <th>Endpoint</th>
     <th>Method</th>
     <th>Role</th>
-    <th>Params</th>
     <th>Body</th>
   </tr>
   <tr>
@@ -133,7 +84,6 @@ parcel-delivery-server-psi.vercel.app/api/v1
     <td>/auth/login</td>
     <td>POST</td>
     <td>admin, superAdmin, sender, receiver</td>
-    <td>NA</td>
     <td>      
       
       {
@@ -147,10 +97,9 @@ parcel-delivery-server-psi.vercel.app/api/v1
   <tr>
     <td>user</td>
     <td>Create Admin</td>
-    <td>user/create-admin</td>
+    <td>/user/create-admin</td>
     <td>POST</td>
     <td>superAdmin</td>
-    <td>NA</td>
     <td>      
       
     {
@@ -168,10 +117,9 @@ parcel-delivery-server-psi.vercel.app/api/v1
   <tr>
     <td>user</td>
     <td>User Registration</td>
-    <td>user/register</td>
+    <td>/user/register</td>
     <td>POST</td>
     <td>public</td>
-    <td>NA</td>
     <td>      
       
     {
@@ -184,6 +132,60 @@ parcel-delivery-server-psi.vercel.app/api/v1
     }
       
   </td>
+  </tr>
+  
+  <tr>
+    <td>user</td>
+    <td>Get All Users</td>
+    <td>/user</td>
+    <td>GET</td>
+    <td>admin, superAdmin</td>
+    <td>NA</td>
+  </tr>
+  
+  <tr>
+    <td>user</td>
+    <td>Get Single Users</td>
+    <td>/user/:id</td>
+    <td>GET</td>
+    <td>admin, superAdmin</td>
+    <td>NA</td>
+  </tr>
+  
+  <tr>
+    <td>user</td>
+    <td>Get Me</td>
+    <td>/user/me</td>
+    <td>GET</td>
+    <td>admin, superAdmin, sender, receiver</td>
+    <td>NA</td>
+  </tr>
+  
+  <tr>
+    <td>user</td>
+    <td>Block an User</td>
+    <td>/user/block-user/:id</td>
+    <td>PATCH</td>
+    <td>admin, superAdmin</td>
+    <td>NA</td>
+  </tr>
+  
+  <tr>
+    <td>user</td>
+    <td>Unblock an User</td>
+    <td>/user/unblock-user/:id</td>
+    <td>PATCH</td>
+    <td>admin, superAdmin</td>
+    <td>NA</td>
+  </tr>
+  
+  <tr>
+    <td>user</td>
+    <td>Delete an User</td>
+    <td>/user/:id</td>
+    <td>PATCH</td>
+    <td>admin, superAdmin</td>
+    <td>NA</td>
   </tr>
   
 </table>
