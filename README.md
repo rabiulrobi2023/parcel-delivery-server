@@ -1,5 +1,5 @@
 ## Parcel Delivery System
-#### Welcome to parcel delivery system app. It is a backend app that using a you can manage parcel delivery system. Here role base user registration, authentication and services implemented.
+#### Welcome to parcel delivery system app. It is a backend app that using you can manage parcel delivery system. Here role base user registration, authentication and services implemented.
 
 ## Key Features
 ### 1. Role Base Account Registration
