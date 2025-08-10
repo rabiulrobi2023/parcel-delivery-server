@@ -48,20 +48,20 @@
   8. Brypt: For password hashing bcrypt is used
 
 ## Environmet Instruction
-  PORT = 5000
-  DB_URL = mongodb+srv://<username>:<password>@<cluster-url>.9f4uluw.mongodb.net/<db_name>?retryWrites=true&w=majority&appName=Cluster0
+  PORT = 5000 </br>
+  DB_URL = mongodb+srv://<username>:<password>@<cluster-url>.9f4uluw.mongodb.net/<db_name>?retryWrites=true&w=majority&appName=Cluster0  </br>
   
-  NOVE_ENV = production
-  SALT = 10
+  NOVE_ENV = production  </br>
+  SALT = 10  </br>
   
-  JWT_ACCESS_SECRET = e09b457e97ea22a05e37b83c7b5fecc1
-  JWT_ACCESS_EXPIRE = 10d
+  JWT_ACCESS_SECRET = your_jwt_access_secret  </br>
+  JWT_ACCESS_EXPIRE = 10d  </br>
   
-  JWT_REFRESH_SECRET = e09b457e97ea22a05e37b83c7b5fecc1
-  JWT_REFRESH_EXPIRE = 30d
+  JWT_REFRESH_SECRET = your_jwt_refresh_secret  </br>
+  JWT_REFRESH_EXPIRE = 30d  </br>
   
-  SUPER_ADMIN_EMAIL = superadmin@gmail.com
-  SUPER_ADMIN_PASS = superadmin
+  SUPER_ADMIN_EMAIL = superadmin@gmail.com  </br>
+  SUPER_ADMIN_PASS = superadmin  </br>
 
 ## API
 ### Base API: 
